@@ -55,6 +55,7 @@ AppAsset::register($this);
                     ['label' => \Yii::t('text','Portfolio'), 'url' => ['/#portfolio']],
 //                    ['label' => \Yii::t('text','Services'), 'url' => ['/#services']],
                     $user, $login, $signup, $logout,
+                    ['label' => \Yii::t('text','Crawler'), 'url' => ['/site/crawler']],
 //                    ['label' => \Yii::t('text','Contuct Us'), 'url' => ['/#contact']],
                 ];
                 echo Nav::widget([
