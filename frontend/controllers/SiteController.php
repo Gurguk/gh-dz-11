@@ -31,7 +31,7 @@ class SiteController extends Controller
                 'only' => ['logout', 'signup', 'usersection'],
                 'rules' => [
                     [
-                        'actions' => ['signup'],
+                        'actions' => ['signup','crawler'],
                         'allow' => true,
                         'roles' => ['?'],
                     ],
@@ -182,5 +182,16 @@ class SiteController extends Controller
         $user_information['lastname'] = \Yii::$app->user->identity->lastname;
 
         return $this->render('userinfo', ['user_information' => $user_information]);
+    }
+
+    public function actionCrawler()
+    {
+        $model = new SignupForm();
+        if(count(Yii::$app->request->post()))
+            $requestCrawler = Yii::$container->get('requestCrawler')->saveToFile(Yii::$app->request->post());
+
+        return $this->render('crawler', [
+            'model' => $model,
+        ]);
     }
 }
