@@ -23,12 +23,13 @@ class RequestCrawler extends Component
     }
 
     /**
-     *  @param string $decodetString
+     *  @param array $dataArray
      */
-    public function saveToFile($decodetString)
+    public function saveToFile($dataArray)
     {
+        $encodedString = $this->serialize->encode($dataArray);
         $fp = fopen(__DIR__.$this->pathToFile.time().".log", "a");
-        fwrite($fp, $decodetString);
+        fwrite($fp, $encodedString);
 
         return fclose($fp);
     }

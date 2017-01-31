@@ -1,6 +1,7 @@
 <?php
 
 namespace common\crawler;
+
 use \common\crawler\SerializerInterface;
 
 class RequestCrawlerServiceBuilder

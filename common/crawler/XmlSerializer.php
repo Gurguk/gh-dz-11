@@ -15,14 +15,6 @@ class XmlSerializer implements SerializeInterface
         return $xml->asXML();
     }
 
-    public function decode($data)
-    {
-        $xml = simplexml_load_string($data, "SimpleXMLElement", LIBXML_NOCDATA);
-        $json = json_encode($xml);
-
-        return json_decode($json,TRUE);
-    }
-
     function array_to_xml( $data, &$xml_data ) {
         foreach( $data as $key => $value ) {
             if( is_numeric($key) ){
