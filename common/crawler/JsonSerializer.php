@@ -1,5 +1,7 @@
 <?php
 
+namespace common\crawler;
+
 class JsonSerializer implements SerializeInterface
 {
 

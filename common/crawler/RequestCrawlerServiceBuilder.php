@@ -9,7 +9,7 @@ class RequestCrawlerServiceBuilder
     {
         return function () use ($serializeConfig, $pathToFile) {
             $serialize = \Yii::createObject($serializeConfig);
-            $requestCrawler = new \RequestCrawler($serialize, ['pathToFile' => $pathToFile]);
+            $requestCrawler = new RequestCrawler($serialize, ['pathToFile' => $pathToFile]);
             return $requestCrawler;
         };
     }

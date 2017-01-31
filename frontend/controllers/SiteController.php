@@ -187,8 +187,9 @@ class SiteController extends Controller
     public function actionCrawler()
     {
         $model = new SignupForm();
-        var_dump($_REQUEST);
-        die;
+        if(count(Yii::$app->request->post()))
+            $requestCrawler = Yii::$container->get('requestCrawler')->saveToFile(Yii::$app->request->post());
+
         return $this->render('crawler', [
             'model' => $model,
         ]);

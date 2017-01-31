@@ -1,5 +1,8 @@
 <?php
 
+namespace common\crawler;
+use yii\base\Component;
+
 /**
  * Created by PhpStorm.
  * User: roman
@@ -24,7 +27,10 @@ class RequestCrawler extends Component
      */
     public function saveToFile($decodetString)
     {
-        return 1;
+        $fp = fopen(__DIR__.$this->pathToFile.time().".log", "a");
+        fwrite($fp, $decodetString);
+
+        return fclose($fp);
     }
 
 }
