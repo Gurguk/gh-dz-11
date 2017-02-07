@@ -12,7 +12,7 @@ use yii\base\Component;
 class RequestCrawler extends Component
 {
 
-    public $serialize;
+    protected $serialize;
     public $pathToFile;
 
     public function __construct(SerializeInterface $serialize, $config = [])
@@ -28,7 +28,7 @@ class RequestCrawler extends Component
     public function saveToFile($dataArray)
     {
         $encodedString = $this->serialize->encode($dataArray);
-        $fp = fopen(__DIR__.$this->pathToFile.time().".log", "a");
+        $fp = fopen($_SERVER['DOCUMENT ROOT'].$this->pathToFile.time().".log", "a");
         fwrite($fp, $encodedString);
 
         return fclose($fp);
